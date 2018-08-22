@@ -275,8 +275,10 @@ end
 %% Other Functions
 
 function binReturnImg=binImageGen(mastImage)
-binReturnImg=~(mastImage==116|mastImage==117|mastImage==118|mastImage==119|mastImage==120);
-
+dum1=~(mastImage==116|mastImage==117|mastImage==118|mastImage==119|mastImage==120);
+dum2=bwareaopen(~dum1,100);
+binReturnImg=~dum2;
+%binReturnImg=(mastImage>=100);
 
 function generateSurface(handles)  %type generate
 set(handles.waitTag,'Visible','On');
